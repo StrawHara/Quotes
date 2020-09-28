@@ -11,50 +11,107 @@ import UIKit
 import Reusable
 
 final class AppCoordinator: NSObject {
+    
+    private enum TabbarItem: Int {
+        case quotes = 0
+        case profile
+    }
+    
+    private var window: UIWindow?
+    
+    private var tabbarController: UITabBarController?
+    
+    private var quotesNav: UINavigationController?
+    private var quotesVC: QuotesViewController?
+    
+    private var profileNav: UINavigationController?
+    private var profileVC: ProfileViewController?
+    
+    private var errorVC: ErrorViewController?
 
-  private enum TabbarItem: Int {
-    case quotes = 0
-    case profile
-  }
+    private var loadingVC: LoadingViewController?
+    
+    // MARK: Life cycle
+    init(window: UIWindow?) {
+        self.window = window
+    }
+    
+    // MARK: Coordinator implementation
+    func start() {
+        self.connect()
+    }
+    
+    // MARK: Privates
+    private func connect() {
+        self.showLoadingScreen()
+        NetworkLayer.shared.execute(Session.SessionRouter.login(login: "strawhara", password: "plop42")) { (result: Result<Session, Error>) in
+            switch result {
+            case .success(let session):
+                DispatchQueue.main.async { self.showAppContent() }
+                print(session)
+            case .failure(let error):
+                DispatchQueue.main.async { self.showErrorScreen(error: error) }
+            }
+        }
+    }
+}
 
-  private var window: UIWindow?
+// MARK: - Loading
+extension AppCoordinator {
+    
+    private func showLoadingScreen() {
+        self.loadingVC = LoadingViewController()
+        self.window?.rootViewController = self.loadingVC
+    }
+    
+}
 
-  private var tabbarController: UITabBarController
+// MARK: - Error
+protocol AppCoordinatorErrorDelegate {
+    func retry()
+}
 
-  private var quotesNav: UINavigationController
-  private var quotesVC: QuotesViewController
+extension AppCoordinator: AppCoordinatorErrorDelegate {
+    
+    private func showErrorScreen(error: Error?) {
+        self.errorVC = ErrorViewController()
+        self.errorVC?.setup(error: error, delegate: self)
+        self.window?.rootViewController = self.errorVC
+    }
+    
+    func retry() {
+        self.connect()
+    }
+    
+}
 
-  private var profileNav: UINavigationController
-  private var profileVC: ProfileViewController
+// MARK: - Success
+extension AppCoordinator {
+    
+    // TODO: Instantiate new coordinator instead
+    private func showAppContent() {
+        // MARK: Navigation Controllers
+        let quotesVC = QuotesViewController.instantiate()
+        let quotesNav = UINavigationController(rootViewController: quotesVC)
+        quotesNav.tabBarItem = UITabBarItem(title: "Quotes",
+                                            image: UIImage(systemName: "quote.bubble.fill"),
+                                            tag: TabbarItem.quotes.rawValue)
+        self.quotesVC = quotesVC; self.quotesNav = quotesNav
 
-  init(window: UIWindow?) {
-    self.window = window
+        let profileVC = ProfileViewController.instantiate()
+        let profileNav = UINavigationController(rootViewController: profileVC)
+        profileNav.tabBarItem = UITabBarItem(title: "Profile",
+                                             image: UIImage(systemName: "person.fill"),
+                                             tag: TabbarItem.profile.rawValue)
+        self.profileVC = profileVC; self.profileNav = profileNav
 
-    // MARK: Navigation Controllers
-    self.quotesVC = QuotesViewController.instantiate()
-    self.quotesNav = UINavigationController(rootViewController: self.quotesVC)
-    self.quotesNav.tabBarItem = UITabBarItem(title: "Quotes",
-                                             image: UIImage(systemName: "quote.bubble.fill"),
-                                             tag: TabbarItem.quotes.rawValue)
-
-    self.profileVC = ProfileViewController.instantiate()
-    self.profileNav = UINavigationController(rootViewController: self.profileVC)
-    self.profileNav.tabBarItem = UITabBarItem(title: "Profile",
-                                              image: UIImage(systemName: "person.fill"),
-                                              tag: TabbarItem.profile.rawValue)
-
-    // MARK: Tabbar
-    self.tabbarController = UITabBarController()
-    self.tabbarController.viewControllers = [quotesNav, profileNav]
-    self.tabbarController.tabBar.contentMode = .scaleAspectFill
-    self.tabbarController.tabBar.clipsToBounds = false
-
-    self.window?.rootViewController = self.tabbarController
-  }
-
-  // MARK: Coordinator implementation
-  func start() {
-
-  }
-
+        // MARK: Tabbar
+        self.tabbarController = UITabBarController()
+        self.tabbarController?.viewControllers = [quotesNav, profileNav]
+        self.tabbarController?.tabBar.contentMode = .scaleAspectFill
+        self.tabbarController?.tabBar.clipsToBounds = false
+        
+        self.window?.rootViewController = self.tabbarController
+    }
+    
 }

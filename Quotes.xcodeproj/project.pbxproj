@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE99727325224FC200DC7630 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE99727225224FC200DC7630 /* Dictionary.swift */; };
+		BE99727E25225BB400DC7630 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE99727D25225BB400DC7630 /* ErrorViewController.swift */; };
+		BE99728325225BBF00DC7630 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE99728225225BBF00DC7630 /* LoadingViewController.swift */; };
+		BE99728825225E9D00DC7630 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE99728725225E9D00DC7630 /* UIView.swift */; };
 		E92B8F79251F9F93006CA616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B8F78251F9F93006CA616 /* AppDelegate.swift */; };
 		E92B8F7B251F9F93006CA616 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B8F7A251F9F93006CA616 /* SceneDelegate.swift */; };
 		E92B8F90251F9F96006CA616 /* QuotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B8F8F251F9F96006CA616 /* QuotesTests.swift */; };
 		E92B8F9B251F9F96006CA616 /* QuotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B8F9A251F9F96006CA616 /* QuotesUITests.swift */; };
 		E9AC2DE72521256800EE6CDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FA0B19252117EF00FF6481 /* LaunchScreen.storyboard */; };
+		E9AC2DEF2521279400EE6CDB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC2DEE2521279400EE6CDB /* Network.swift */; };
+		E9AC2DF4252127AB00EE6CDB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC2DF3252127AB00EE6CDB /* Router.swift */; };
+		E9AC2E1B25212BFA00EE6CDB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC2E1A25212BFA00EE6CDB /* NetworkError.swift */; };
+		E9AC2E2025212C2000EE6CDB /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC2E1F25212C2000EE6CDB /* NetworkLayer.swift */; };
+		E9AC2E4625220CF900EE6CDB /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC2E4525220CF900EE6CDB /* Credentials.swift */; };
 		E9FA0B1E252117EF00FF6481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9FA0B18252117EF00FF6481 /* Assets.xcassets */; };
 		E9FA0B362521189D00FF6481 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FA0B352521189D00FF6481 /* AppCoordinator.swift */; };
 		E9FA0B3D2521193300FF6481 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FA0B3C2521193300FF6481 /* QuotesViewController.swift */; };
@@ -43,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE99727225224FC200DC7630 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		BE99727D25225BB400DC7630 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		BE99728225225BBF00DC7630 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		BE99728725225E9D00DC7630 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		E92B8F75251F9F92006CA616 /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92B8F78251F9F93006CA616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E92B8F7A251F9F93006CA616 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +65,11 @@
 		E92B8F96251F9F96006CA616 /* QuotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92B8F9A251F9F96006CA616 /* QuotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesUITests.swift; sourceTree = "<group>"; };
 		E92B8F9C251F9F96006CA616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9AC2DEE2521279400EE6CDB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		E9AC2DF3252127AB00EE6CDB /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		E9AC2E1A25212BFA00EE6CDB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		E9AC2E1F25212C2000EE6CDB /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		E9AC2E4525220CF900EE6CDB /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		E9FA0B18252117EF00FF6481 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9FA0B1A252117EF00FF6481 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9FA0B1D252117EF00FF6481 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE99727C25225B8900DC7630 /* Generics */ = {
+			isa = PBXGroup;
+			children = (
+				BE99727D25225BB400DC7630 /* ErrorViewController.swift */,
+				BE99728225225BBF00DC7630 /* LoadingViewController.swift */,
+			);
+			path = Generics;
+			sourceTree = "<group>";
+		};
 		E92B8F6C251F9F92006CA616 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +194,8 @@
 		E9FA0B2C2521185300FF6481 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BE99727225224FC200DC7630 /* Dictionary.swift */,
+				BE99728725225E9D00DC7630 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -174,6 +203,10 @@
 		E9FA0B2D2521185300FF6481 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E9AC2DEE2521279400EE6CDB /* Network.swift */,
+				E9AC2DF3252127AB00EE6CDB /* Router.swift */,
+				E9AC2E1F25212C2000EE6CDB /* NetworkLayer.swift */,
+				E9AC2E1A25212BFA00EE6CDB /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -191,6 +224,7 @@
 				E9FA0B352521189D00FF6481 /* AppCoordinator.swift */,
 				E9FA0B3A252118A300FF6481 /* Quotes */,
 				E9FA0B3B252118AC00FF6481 /* Profile */,
+				BE99727C25225B8900DC7630 /* Generics */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -205,6 +239,7 @@
 		E9FA0B312521185300FF6481 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E9AC2E4525220CF900EE6CDB /* Credentials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -370,10 +405,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9AC2E2025212C2000EE6CDB /* NetworkLayer.swift in Sources */,
+				BE99727E25225BB400DC7630 /* ErrorViewController.swift in Sources */,
 				E9FA0B362521189D00FF6481 /* AppCoordinator.swift in Sources */,
+				E9AC2E1B25212BFA00EE6CDB /* NetworkError.swift in Sources */,
+				E9AC2DF4252127AB00EE6CDB /* Router.swift in Sources */,
+				BE99727325224FC200DC7630 /* Dictionary.swift in Sources */,
+				E9AC2DEF2521279400EE6CDB /* Network.swift in Sources */,
 				E9FA0B3D2521193300FF6481 /* QuotesViewController.swift in Sources */,
 				E9FA0B452521194300FF6481 /* ProfileViewController.swift in Sources */,
 				E92B8F79251F9F93006CA616 /* AppDelegate.swift in Sources */,
+				BE99728825225E9D00DC7630 /* UIView.swift in Sources */,
+				E9AC2E4625220CF900EE6CDB /* Credentials.swift in Sources */,
+				BE99728325225BBF00DC7630 /* LoadingViewController.swift in Sources */,
 				E92B8F7B251F9F93006CA616 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
