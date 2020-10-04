@@ -8,6 +8,7 @@
 import Foundation
 
 protocol Router {
+
     func asURLRequest() throws -> URLRequest
     var method: Network.HTTPMethod {get}
     var path: String {get}
@@ -15,6 +16,7 @@ protocol Router {
     var parameters: [String: Any?] {get}
     var headers: [String: String] {get}
     var body: [String: Any?] {get}
+
 }
 
 extension Router {

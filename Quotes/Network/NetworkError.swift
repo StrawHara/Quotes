@@ -19,6 +19,8 @@ enum NetworkError: Error {
 
 extension NetworkError: LocalizedError {
 
+    var debug: String { return prefix + "  " + description}
+    
     var prefix: String { return "🔥🔥 Network Error 🔥🔥" }
 
     var description: String {

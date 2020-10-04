@@ -58,7 +58,7 @@ extension Session {
         var path: String {
             return "session"
         }
-        
+
         var parameters: [String: Any?] {
             return [:]
         }

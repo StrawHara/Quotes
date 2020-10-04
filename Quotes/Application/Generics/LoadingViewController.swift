@@ -12,6 +12,7 @@ final class LoadingViewController: UIViewController {
     // MARK: - Outlets
     private let progressionLabel: UILabel = {
         let progressionLabel = UILabel()
+        progressionLabel.translatesAutoresizingMaskIntoConstraints = false
         progressionLabel.text = "Connection in progress..."
         progressionLabel.textAlignment = .center
         progressionLabel.textColor = .white
@@ -22,7 +23,7 @@ final class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         setupUI()
     }
-
+    
     // MARK: - Privates
     private func setupUI() {
         self.view.backgroundColor = .systemGreen

@@ -65,8 +65,7 @@ final class ImageCell: UITableViewCell, Reusable {
             self.contentImageView.trailingAnchor.constraint(greaterThanOrEqualTo: self.contentView.trailingAnchor, constant: -20),
             self.contentImageView.topAnchor.constraint(greaterThanOrEqualTo: self.contentView.topAnchor, constant: 20),
             self.contentImageView.bottomAnchor.constraint(greaterThanOrEqualTo: self.contentView.bottomAnchor, constant: -20),
-            self.contentImageView.heightAnchor.constraint(equalToConstant: 200),
-            self.contentImageView.widthAnchor.constraint(equalToConstant: 200),
+            self.contentImageView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
 

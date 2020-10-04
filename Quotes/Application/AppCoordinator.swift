@@ -61,18 +61,31 @@ final class AppCoordinator: NSObject {
         self.window?.rootViewController = self.tabbarController
         
         self.getUser()
+        self.getQuotes()
     }
     
     // MARK: Privates
     private func getUser() {
-        self.networkLayer.execute(User.USerRouter.get(login: "strawhara")) { (result: Result<User, Error>) in
+        self.networkLayer.execute(User.UserRouter.get(login: "strawhara")) { (result: Result<User, Error>) in
             switch result {
             case .success(let user):
                 DispatchQueue.main.async { self.profileVC?.setup(networkLayer: self.networkLayer, user: user) }
                 print(user)
             case .failure(let error):
+                print((error as? NetworkError)?.debug ?? "")
                 break
-//                DispatchQueue.main.async { self.showErrorScreen(error: error) }
+            }
+        }
+    }
+    
+    private func getQuotes() {
+        self.networkLayer.execute(QuotePage.QuotePageRouter.any) { (result: Result<QuotePage, Error>) in
+            switch result {
+            case .success(let quotePage):
+                DispatchQueue.main.async { self.quotesVC?.setup(quotes: quotePage.quotes) }
+            case .failure(let error):
+                print((error as? NetworkError)?.debug ?? "")
+                break
             }
         }
     }

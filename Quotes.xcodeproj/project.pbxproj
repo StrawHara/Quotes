@@ -15,6 +15,9 @@
 		BE9972A12522745100DC7630 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9972A02522745100DC7630 /* User.swift */; };
 		BE9972A72522804600DC7630 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9972A62522804600DC7630 /* ImageCell.swift */; };
 		BEC5E124252A15DD007C2A92 /* UserStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5E123252A15DD007C2A92 /* UserStatsCell.swift */; };
+		BEC5E12C252A1CAC007C2A92 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5E12B252A1CAC007C2A92 /* Quote.swift */; };
+		BEC5E138252A2018007C2A92 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5E137252A2018007C2A92 /* QuoteCell.swift */; };
+		BEC5E140252A3E30007C2A92 /* QuotePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5E13F252A3E30007C2A92 /* QuotePage.swift */; };
 		E92B8F79251F9F93006CA616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B8F78251F9F93006CA616 /* AppDelegate.swift */; };
 		E92B8F7B251F9F93006CA616 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B8F7A251F9F93006CA616 /* SceneDelegate.swift */; };
 		E92B8F90251F9F96006CA616 /* QuotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B8F8F251F9F96006CA616 /* QuotesTests.swift */; };
@@ -64,6 +67,9 @@
 		BE9972A02522745100DC7630 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BE9972A62522804600DC7630 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		BEC5E123252A15DD007C2A92 /* UserStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsCell.swift; sourceTree = "<group>"; };
+		BEC5E12B252A1CAC007C2A92 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		BEC5E137252A2018007C2A92 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
+		BEC5E13F252A3E30007C2A92 /* QuotePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotePage.swift; sourceTree = "<group>"; };
 		E92B8F75251F9F92006CA616 /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92B8F78251F9F93006CA616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E92B8F7A251F9F93006CA616 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +145,14 @@
 			isa = PBXGroup;
 			children = (
 				BEC5E123252A15DD007C2A92 /* UserStatsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BEC5E136252A200E007C2A92 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BEC5E137252A2018007C2A92 /* QuoteCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,6 +281,8 @@
 			children = (
 				E9AC2E4525220CF900EE6CDB /* Session.swift */,
 				BE9972A02522745100DC7630 /* User.swift */,
+				BEC5E12B252A1CAC007C2A92 /* Quote.swift */,
+				BEC5E13F252A3E30007C2A92 /* QuotePage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -276,6 +292,7 @@
 			children = (
 				E9FA0B3C2521193300FF6481 /* QuotesViewController.swift */,
 				E9FA0B492521195200FF6481 /* QuotesViewController.storyboard */,
+				BEC5E136252A200E007C2A92 /* Views */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -433,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC5E138252A2018007C2A92 /* QuoteCell.swift in Sources */,
 				E9AC2E2025212C2000EE6CDB /* NetworkLayer.swift in Sources */,
 				BE99727E25225BB400DC7630 /* ErrorViewController.swift in Sources */,
 				E9FA0B362521189D00FF6481 /* AppCoordinator.swift in Sources */,
@@ -441,9 +459,11 @@
 				E9AC2DF4252127AB00EE6CDB /* Router.swift in Sources */,
 				BE9972A72522804600DC7630 /* ImageCell.swift in Sources */,
 				BE99727325224FC200DC7630 /* Dictionary.swift in Sources */,
+				BEC5E140252A3E30007C2A92 /* QuotePage.swift in Sources */,
 				E9AC2DEF2521279400EE6CDB /* Network.swift in Sources */,
 				E9FA0B3D2521193300FF6481 /* QuotesViewController.swift in Sources */,
 				E9FA0B452521194300FF6481 /* ProfileViewController.swift in Sources */,
+				BEC5E12C252A1CAC007C2A92 /* Quote.swift in Sources */,
 				E92B8F79251F9F93006CA616 /* AppDelegate.swift in Sources */,
 				BE99728825225E9D00DC7630 /* UIView.swift in Sources */,
 				E9AC2E4625220CF900EE6CDB /* Session.swift in Sources */,

@@ -49,7 +49,7 @@ extension User: Decodable {
 // MARK: - Router
 extension User {
     
-    enum USerRouter: Router {
+    enum UserRouter: Router {
         case get(login: String)
         
         var method: Network.HTTPMethod {
@@ -65,7 +65,7 @@ extension User {
                 return "users/\(login)"
             }
         }
-        
+
         var parameters: [String: Any?] {
             return [:]
         }

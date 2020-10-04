@@ -60,11 +60,15 @@ extension NetworkLayer {
             let decoder = JSONDecoder()
 
             guard let data = data else { completion(Result.failure(NetworkError.unknown)); return }
+            
             guard let responseDic = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String: Any] else { completion(Result.failure(NetworkError.serialize)); return }
+            
             guard let jsonData = try? JSONSerialization.data(withJSONObject:responseDic) else { completion(Result.failure(NetworkError.noData)); return }
+            
             guard let decodedT = try? decoder.decode(T.self, from: jsonData) else { completion(Result.failure(NetworkError.decode)); return }
 
             completion(Result.success(decodedT))
+            
         }.resume()
             
     }

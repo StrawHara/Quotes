@@ -19,6 +19,7 @@ final class ErrorViewController: UIViewController {
     // MARK: - Outlets
     private let errorLabel: UILabel = {
         let errorLabel = UILabel()
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
         errorLabel.textAlignment = .center
         errorLabel.textColor = .white
         return errorLabel
@@ -54,8 +55,8 @@ final class ErrorViewController: UIViewController {
         NSLayoutConstraint.activate([
             self.errorLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             self.errorLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            self.errorLabel.leadingAnchor.constraint(greaterThanOrEqualTo: self.view.leadingAnchor, constant: 20),
-            self.errorLabel.trailingAnchor.constraint(greaterThanOrEqualTo: self.view.trailingAnchor, constant: -20),
+            self.errorLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
+            self.errorLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
 
             self.retryButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             self.retryButton.topAnchor.constraint(greaterThanOrEqualTo: self.errorLabel.bottomAnchor, constant: 20),
