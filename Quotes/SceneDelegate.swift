@@ -11,7 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    var appCoordinator: AppCoordinator!
+    var mainCoordinator: MainCoordinator!
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
 
         // MARK: AppCoordinator
-        self.appCoordinator = AppCoordinator(window: self.window)
-        self.appCoordinator.start()
+        self.mainCoordinator = MainCoordinator(window: self.window)
+        self.mainCoordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

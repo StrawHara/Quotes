@@ -8,6 +8,7 @@
 import Foundation
 
 enum NetworkError: Error {
+    case networkLayerDown
     case urlEncoding
     case noData
     case serialize
@@ -22,6 +23,7 @@ extension NetworkError: LocalizedError {
 
     var description: String {
         switch self {
+        case .networkLayerDown: return "Network layer down"
         case .urlEncoding: return "url Encoding failed"
         case .noData: return "No Data in response"
         case .serialize: return "Serializing failed"

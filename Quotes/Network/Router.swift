@@ -27,12 +27,14 @@ extension Router {
         var urlRequest = URLRequest(url: url.appendingPathComponent(path + parameters.queryString))
         
         urlRequest.httpMethod = method.rawValue
-        
+                
         let headerFields = Network.baseHeader.merging(headers, uniquingKeysWith: { (first, _) in first })
         urlRequest.allHTTPHeaderFields = headerFields
         
-        let bodyData = try? JSONSerialization.data(withJSONObject: body)
-        urlRequest.httpBody = bodyData
+        if method != .get {
+            let bodyData = try? JSONSerialization.data(withJSONObject: body)
+            urlRequest.httpBody = bodyData
+        }
 
         urlRequest.timeoutInterval = 60
         urlRequest.httpShouldHandleCookies = false

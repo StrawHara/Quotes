@@ -22,6 +22,7 @@ struct Network {
         case contentType = "Content-Type"
         case acceptType = "Accept"
         case acceptEncoding = "Accept-Encoding"
+        case userToken = "User-Token"
     }
 
     enum ContentType: String {

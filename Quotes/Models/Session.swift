@@ -31,6 +31,7 @@ extension Session: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: SessionKeys.self)
         
+        // TODO: Store access token to Keychain
         userToken = try container.decode(String.self, forKey: .userToken)
         email = try container.decode(String.self, forKey: .email)
         login = try container.decode(String.self, forKey: .login)

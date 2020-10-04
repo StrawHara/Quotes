@@ -18,7 +18,8 @@ final class AppCoordinator: NSObject {
     }
     
     private var window: UIWindow?
-    
+    private var networkLayer: NetworkLayer
+
     private var tabbarController: UITabBarController?
     
     private var quotesNav: UINavigationController?
@@ -26,70 +27,15 @@ final class AppCoordinator: NSObject {
     
     private var profileNav: UINavigationController?
     private var profileVC: ProfileViewController?
-    
-    private var errorVC: ErrorViewController?
 
-    private var loadingVC: LoadingViewController?
-    
     // MARK: Life cycle
-    init(window: UIWindow?) {
+    init(window: UIWindow?, networkLayer: NetworkLayer) {
         self.window = window
+        self.networkLayer = networkLayer
     }
     
     // MARK: Coordinator implementation
     func start() {
-        self.connect()
-    }
-    
-    // MARK: Privates
-    private func connect() {
-        self.showLoadingScreen()
-        NetworkLayer.shared.execute(Session.SessionRouter.login(login: "strawhara", password: "plop42")) { (result: Result<Session, Error>) in
-            switch result {
-            case .success(let session):
-                DispatchQueue.main.async { self.showAppContent() }
-                print(session)
-            case .failure(let error):
-                DispatchQueue.main.async { self.showErrorScreen(error: error) }
-            }
-        }
-    }
-}
-
-// MARK: - Loading
-extension AppCoordinator {
-    
-    private func showLoadingScreen() {
-        self.loadingVC = LoadingViewController()
-        self.window?.rootViewController = self.loadingVC
-    }
-    
-}
-
-// MARK: - Error
-protocol AppCoordinatorErrorDelegate {
-    func retry()
-}
-
-extension AppCoordinator: AppCoordinatorErrorDelegate {
-    
-    private func showErrorScreen(error: Error?) {
-        self.errorVC = ErrorViewController()
-        self.errorVC?.setup(error: error, delegate: self)
-        self.window?.rootViewController = self.errorVC
-    }
-    
-    func retry() {
-        self.connect()
-    }
-    
-}
-
-// MARK: - Success
-extension AppCoordinator {
-    
-    // TODO: Instantiate new coordinator instead
-    private func showAppContent() {
         // MARK: Navigation Controllers
         let quotesVC = QuotesViewController.instantiate()
         let quotesNav = UINavigationController(rootViewController: quotesVC)
@@ -99,6 +45,7 @@ extension AppCoordinator {
         self.quotesVC = quotesVC; self.quotesNav = quotesNav
 
         let profileVC = ProfileViewController.instantiate()
+        profileVC.setup(networkLayer: self.networkLayer)
         let profileNav = UINavigationController(rootViewController: profileVC)
         profileNav.tabBarItem = UITabBarItem(title: "Profile",
                                              image: UIImage(systemName: "person.fill"),
@@ -112,6 +59,22 @@ extension AppCoordinator {
         self.tabbarController?.tabBar.clipsToBounds = false
         
         self.window?.rootViewController = self.tabbarController
+        
+        self.getUser()
     }
     
+    // MARK: Privates
+    private func getUser() {
+        self.networkLayer.execute(User.USerRouter.get(login: "strawhara")) { (result: Result<User, Error>) in
+            switch result {
+            case .success(let user):
+                DispatchQueue.main.async { self.profileVC?.setup(networkLayer: self.networkLayer, user: user) }
+                print(user)
+            case .failure(let error):
+                break
+//                DispatchQueue.main.async { self.showErrorScreen(error: error) }
+            }
+        }
+    }
+
 }

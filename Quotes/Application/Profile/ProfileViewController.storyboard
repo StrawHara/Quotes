@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KRj-ld-Clq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,22 +16,8 @@
                     <view key="view" contentMode="scaleToFill" id="9ra-Jo-Xl5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ef-XC-lrL">
-                                <rect key="frame" x="10" y="427.5" width="394" height="41"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="esC-aS-fwd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="5Ef-XC-lrL" firstAttribute="centerY" secondItem="9ra-Jo-Xl5" secondAttribute="centerY" id="E1f-Lx-gtj"/>
-                            <constraint firstItem="5Ef-XC-lrL" firstAttribute="centerX" secondItem="9ra-Jo-Xl5" secondAttribute="centerX" id="Oa1-N7-M6z"/>
-                            <constraint firstItem="esC-aS-fwd" firstAttribute="trailing" secondItem="5Ef-XC-lrL" secondAttribute="trailing" constant="10" id="fWh-gh-2Uq"/>
-                            <constraint firstItem="5Ef-XC-lrL" firstAttribute="leading" secondItem="esC-aS-fwd" secondAttribute="leading" constant="10" id="h97-l0-6AH"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L5g-QM-8ga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

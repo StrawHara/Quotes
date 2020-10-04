@@ -15,5 +15,17 @@ extension UIView {
             addSubview($0)
         }
     }
+ 
+    /** For instance: containerView.(view: viewToAddInFullSize) */
+    func addInFullSize(_ view: UIView, constant: CGFloat = 0.0, addToSubview: Bool = false) {
+        if addToSubview { self.addSubview(view) }
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: self.topAnchor, constant: constant),
+            view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -constant),
+            view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: constant),
+            view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -constant)
+        ])
+    }
     
 }
